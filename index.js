@@ -7,6 +7,7 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
+var cookieSession = require('cookie-session');
 var app = express();
 
 app.set('views', __dirname + '/public')
@@ -20,11 +21,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
 app.use(expressSession({
-    secret: 'my Key',
-    resave: true,
+    secret: 'feng',
+    resave: false,
     saveUninitialized:true
 }))
- 
+
 app.use('/', route)
  
 app.listen(3000, () => {
