@@ -14,7 +14,7 @@ connection.connect();
 
 
 router.get('/', (req, res) => {
-    res.render('index', {title: "인덱스"})
+    res.render('index_jsontest', {title: "인덱스"})
 })
 
 router.get('/sign', (req, res) => {
@@ -62,7 +62,7 @@ router.post('/login', passport.authenticate('local-login', {
     }), (req, res) => {
         sess = req.body.userId;
         res.render('login');
-    });
+});
     
 router.post('/sign', passport.authenticate('local-sign', {
     successRedirect : '/index', 
