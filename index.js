@@ -31,7 +31,7 @@ var id
 {
    id:'Pong'
 }
-  app.post('/myo', (req, res) => { //request response
+  app.post('/pushdata', (req, res) => { //request response
      var inputData;
      req.on('data', (data) => {
        inputData = JSON.parse(data);
