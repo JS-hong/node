@@ -3,7 +3,6 @@ var passport = require('passport');
 var express = require('express');
 var path = require('path');
 var route = require('./routes/router');
-var passport = require('passport');
 var flash = require('connect-flash');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
