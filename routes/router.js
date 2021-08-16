@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const passport = require('../database/passport')
+const passport = require('passport')
 const mysql = require('mysql');
 const connection_info=({
-  host     : '0.0.0.0',
-  user     : 'line',
+  host     : 'localhost',
+  user     : 'user1',
   password : '7385',
   database : 'node_db'
 });
@@ -14,7 +14,7 @@ connection.connect();
 
 
 router.get('/', (req, res) => {
-    res.render('index_test', {title: "인덱스"})
+    res.render('index', {title: "인덱스"})
 })
 
 router.get('/sign', (req, res) => {
@@ -61,7 +61,7 @@ router.post('/login', passport.authenticate('local-login', {
     failureRedirect: 'loginFail'
     }), (req, res) => {
         sess = req.body.userId;
-        res.render('login');
+        res.render('loginSuccess');
 });
     
 router.post('/sign', passport.authenticate('local-sign', {

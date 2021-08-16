@@ -2,11 +2,11 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy;
 const mysql = require('mysql');
 const connection_info=({
-  host     : '',
-  user     : 'user1',
-  password : '7385',
-  database : 'node_db'
-});
+    host     : 'localhost',
+    user     : 'user1',
+    password : '7385',
+    database : 'node_db'
+  });
 
 let connection = mysql.createConnection(connection_info);
 connection.connect();
