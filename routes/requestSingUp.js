@@ -7,8 +7,8 @@ router.post('/requestSignUp', function(req,res) {
     const password = req.body.password; // password 수신
     const nickname = req.body.nickname;
 
-    var sql = 'INSERT INTO signUpDB(id,password,nickname) VALUES(?,?,?)';
-	var params = [id,password,nickname];
+    var sql = 'INSERT INTO signUpDB(id,password,nickname,uid) VALUES(?,?,?,?)';
+	var params = [id,password,nickname,uid];
 	
 	connection.query(sql,params,function(err, rows){
 		if (err){
@@ -23,4 +23,5 @@ router.post('/requestSignUp', function(req,res) {
 	})
 })
 
+module.exports = requestSignUp;
 

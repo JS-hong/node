@@ -1,22 +1,13 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy;
-const mysql = require('mysql');
-const connection_info=({
-    host     : 'localhost',
-    user     : 'user1',
-    password : '7385',
-    database : 'node_db'
-  });
-
-let connection = mysql.createConnection(connection_info);
-connection.connect();
+const mysql = require('../routes/mysqlconnect');
 
 passport.use('local-login', new LocalStrategy({
     usernameField: 'userId', //폼 데이터 넘어옴
     passwordField: 'password',//위와 같음
     },
     function(userId,password,done){	
-        connection.query('select pwd from test1 where id=?',userId,(err,result)=>{
+        mysql.query('select pwd from test1 where id=?',userId,(err,result)=>{
             if(err){
                 return done(null, false);
             }
