@@ -6,11 +6,11 @@ connection.connect();
 
 router.post('/postwrite', function(req,res) {
 
-    const submain = request.body.submain;
-    const main = request.body.main;
+    const submain = req.body.submain;
+    const main = req.body.main;
 
-    console.log(request.body.submain);
-    console.log(request.body.main);
+    console.log(req.body.submain);
+    console.log(req.body.main);
 
     var sql = 'INSERT INTO test2(sub_main,main,id) VALUES(?,?,?)';
 	var params = [submain,main,sess];
