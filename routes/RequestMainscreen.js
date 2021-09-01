@@ -2,8 +2,6 @@ var express = require('express');
 var connection = require('./routes/mysqlconnect');
 var app = express();
 
-connection.connect();
-
 router.post('/requestmainscreen', function(req,res) {
 
     const submain = req.body.submain;

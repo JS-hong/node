@@ -6,18 +6,17 @@ connection.connect();
 
 router.post('/postcomment', function(req,res) {
 
-    const submain = req.body.submain;
-    const main = req.body.main;
+    const Comment = req.body.Comment;
+    const Comment_date = req.body.Comment_date;
+    const user_id = req.body.user_id;
+    const post_id = req.body.main;
 
-    console.log(req.body.submain);
-    console.log(req.body.main);
-
-    var sql = 'INSERT INTO test2(sub_main,main,id) VALUES(?,?,?)';
-	var params = [submain,main,sess];
+    var sql = 'INSERT INTO PostComment(sub_main,main,id) VALUES(?,?,?)';
+	var params = [Comment,Comment_date,user_id,post_id];
 	
 	connection.query(sql,params,function(err, rows){
 		if (err) throw err;
-		if (sess){
+		if (rows){
             res.send({data : success});
 		} 
         else {

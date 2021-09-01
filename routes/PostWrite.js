@@ -1,26 +1,27 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('./mysqlconnect');
-
-connection.connect();
+const db = require('./mysqlconnect');
 
 router.post('/postwrite', function(req,res) {
 
-    const submain = req.body.submain;
-    const main = req.body.main;
+    const userId = req.body.userId;
+    const maintext = req.body.maintext;
+    const subtext = req.body.subtext;
+    const tag = req.body.tag;
+    const write_time = req.body.id;
+    const language_type = req.body.id;
 
-    console.log(req.body.submain);
-    console.log(req.body.main);
-
-    var sql = 'INSERT INTO test2(sub_main,main,id) VALUES(?,?,?)';
-	var params = [submain,main,sess];
+    var sql = 'INSERT INTO PostwriteDB(id,maintext,subtext,tag,write_time,language_type) VALUES(?,?,?,?,?,?,?)';
+	var params = [userId,maintext,subtext,lineofcode,tag,write_time,language_type];
 	
-	connection.query(sql,params,function(err, rows){
+	db.query(sql,params,function(err, rows){
 		if (err) throw err;
-		if (sess){
+		if (rows)
+        {
             res.send({data : success});
 		} 
-        else {
+        else 
+        {
             res.send({data : fail});
 		}
 	})

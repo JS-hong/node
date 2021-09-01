@@ -24,4 +24,3 @@ router.post('/requestSignUp', function(req,res) {
 })
 
 module.exports = requestSignUp;
-

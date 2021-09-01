@@ -1,11 +1,11 @@
-const mysql = require('mysql');
-const connection_info=({
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'user1',
   password : '7385',
   database : 'node_db'
-});
+	})
 
-let connection = mysql.createConnection(connection_info);
-
+connection.connect();
 module.exports = connection;

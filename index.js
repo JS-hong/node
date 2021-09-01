@@ -7,12 +7,11 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var cookieSession = require('cookie-session');
 var flash = require('connect-flash');
-var connection = require('./routes/mysqlconnect');
+var db = require('./routes/mysqlconnect');
 var route = require('./routes/router');
 var reqLogin = require('./routes/requestLogin');
+var reqLogout = require('./routes/requestLogout');
 var app = express();
-
-connection.connect();
 
 app.set('views', __dirname + '/public')
 app.set('view engine', 'ejs')
@@ -25,16 +24,18 @@ app.use(flash())
 app.use(expressSession({
     secret: 'feng',
     resave: false,
-    saveUninitialized:true
+    saveUninitialized:true,
+    cookie:{maxAge:(3.6e+6)*24}
 }))
 
 app.use('/', route)
 app.use(reqLogin)
+app.use(reqLogout)
 
 app.get('/pushdata', (req, res) => {
   var data = req.query.data;
   res.send({data: data});
-  });
+});
 
 app.listen(port,() => {
     console.log("3000 port is on!")

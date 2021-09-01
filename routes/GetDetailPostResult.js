@@ -1,8 +1,5 @@
 var express = require('express');
-var connection = require('./routes/mysqlconnect');
-var app = express();
-
-connection.connect();
+var db = require('./mysqlconnect');
 
 router.post('/getdetailpostresult', function(req,res) {
 
@@ -11,7 +8,7 @@ router.post('/getdetailpostresult', function(req,res) {
     var sql = 'select * postDB where post_id=?';
 	var params = [postid];
 	
-	connection.query(sql,params,function(err,rows){
+	db.query(sql,params,function(err,rows){
 		if (err) throw err;
 		if (rows){
             res.send({
