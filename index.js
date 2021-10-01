@@ -11,6 +11,7 @@ var db = require('./routes/mysqlconnect');
 var route = require('./routes/router');
 var reqLogin = require('./routes/requestLogin');
 var reqLogout = require('./routes/requestLogout');
+var reqMain = require('./routes/RequestMainscreen');
 var app = express();
 
 app.set('views', __dirname + '/public')

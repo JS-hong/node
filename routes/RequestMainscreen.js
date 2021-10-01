@@ -1,29 +1,60 @@
 var express = require('express');
-var connection = require('./routes/mysqlconnect');
+var connection = require('./mysqlconnect');
+const router = express.Router();
 var app = express();
 
-router.post('/requestmainscreen', function(req,res) {
+router.get('/requestmainscreen', function(req,res) {
 
     const submain = req.body.submain;
 
-    var sql = 'select * postDB';
+    var sql = 'select * from PostwriteDB';
 	var params = [submain];
 	
-	connection.query(sql,params,function(err, rows){
+	connection.query(sql,function(err, rows){
 		if (err) throw err;
-		if (sess){
-            res.send({
-                        data : success,
-                        data : success,
-                        data : success,
-                        data : success,
-                        data : success,
-                        data : success,
-                        data : success
-                    });
+		if (rows){
+            res.send(
+                [
+                    {
+                        id_1 : rows[0].id,
+                        write_time_1 : rows[0].write_time,
+                        subtext_1 : rows[0].subtext,
+                        tag_1 : rows[0].tag,
+                        post_id_1 : rows[0].post_id
+                    },
+                    {
+                        id_2 : rows[1].id,
+                        write_time_2 : rows[1].write_time,
+                        subtext_2 : rows[1].subtext,
+                        tag_2 : rows[1].tag,
+                        post_id_2 : rows[1].post_id
+                    },
+                    {
+                        id_3 : rows[2].id,
+                        write_time_3 : rows[2].write_time,
+                        subtext_3 : rows[2].subtext,
+                        tag_3 : rows[2].tag,
+                        post_id_3 : rows[2].post_id
+                    },
+                    {
+                        id_4 : rows[3].id,
+                        write_time_4 : rows[3].write_time,
+                        subtext_4 : rows[3].subtext,
+                        tag_4 : rows[3].tag,
+                        post_id_4 : rows[3].post_id
+                    },                    {
+                        id_5 : rows[4].id,
+                        write_time_5 : rows[4].write_time,
+                        subtext_5 : rows[4].subtext,
+                        tag_5 : rows[4].tag,
+                        post_id_5 : rows[4].post_id
+                    }                    
+                ]);
 		} 
         else {
             res.send({data : fail});
 		}
 	})
 })
+
+module.exports = router;
