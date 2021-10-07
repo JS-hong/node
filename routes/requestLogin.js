@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const firebase = require("firebase");
+const app = express();
+
+app.use(express.json());
 
 const firebaseConfig = {
     apiKey: "AIzaSyBKSB7qLEtAJyYrPUwLjMKsfRnFnF4faD4",
@@ -14,10 +17,14 @@ const firebaseConfig = {
   };
 
 router.post('/requsetLogin', function(req, res) { 
-
+   	
     const email = req.body.email;//id post 수신
-    const password = req.body.password; // password 수신
-
+    const password = req.body.password; // password 수
+   
+    console.log(req.body);
+    console.log(email);
+    console.log(password);
+    
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig)
     } else {

@@ -1,10 +1,10 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'user1',
-  password : '7385',
-  database : 'node_db'
+  host     : 'awslinedb.csib3pszn1ih.us-east-2.rds.amazonaws.com',
+  user     : 'Line',
+  password : '7385429l',
+  database : 'Line_db'
 	})
 
 connection.connect();
