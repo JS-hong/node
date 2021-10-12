@@ -10,6 +10,8 @@ var flash = require('connect-flash');
 var db = require('./routes/mysqlconnect');
 var route = require('./routes/router');
 var reqMain = require('./routes/RequestMainscreen');
+var reqsignup = require('./routes/requestSingUp');
+
 var app = express();
 
 app.set('views', __dirname + '/public')
@@ -28,6 +30,7 @@ app.use(expressSession({
 }))
 
 app.use('/', route)
+app.use(reqsignup)
 
 app.get('/pushdata', (req, res) => {
   var data = req.query.data;
