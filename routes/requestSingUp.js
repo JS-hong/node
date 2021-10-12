@@ -13,7 +13,7 @@ router.post('/requestSignUp', function(req,res) {
 		if (err) throw err;
 	})
 
-    res.send({data : success});
+    res.send({data : 'success'});
 })
 
 module.exports = router;
