@@ -10,7 +10,7 @@ router.get('/requestmainscreen', function(req,res) {
     var sql = 'select * from PostwriteDB';
 	var params = [submain];
 	
-	connection.query(sql,function(err, rows){
+	connection.query(sql,params,function(err, rows){
 		if (err) throw err;
 		if (rows){
             res.send(

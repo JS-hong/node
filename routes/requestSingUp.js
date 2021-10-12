@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const db = require('./mysqlconnect');   
+const db = require('./mysqlconnect');
+var app = express();
+
+app.use(express.json());   
 
 router.post('/requestSignUp', function(req,res) {
 
