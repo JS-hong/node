@@ -1,9 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const db = require('./mysqlconnect');
-var app = express();
-
-app.use(express.json());   
 
 router.post('/requestSignUp', function(req,res) {
 
@@ -14,15 +11,9 @@ router.post('/requestSignUp', function(req,res) {
 	
 	db.query(sql,params,function(err, rows){
 		if (err) throw err;
-		if (rows)
-        {
-            res.send({data : success});
-		} 
-        else 
-        {
-            res.send({data : fail});
-		}
 	})
+
+    res.send({data : success});
 })
 
 module.exports = router;
