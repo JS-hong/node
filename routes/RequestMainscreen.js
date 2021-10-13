@@ -1,16 +1,15 @@
 var express = require('express');
 var connection = require('./mysqlconnect');
 const router = express.Router();
-var app = express();
 
 router.get('/requestmainscreen', function(req,res) {
 
-    const submain = req.body.submain;
+    const uid = req.body.user_id;
 
     var sql = 'select * from PostwriteDB';
-	var params = [submain];
+	var params = [uid];
 	
-	connection.query(sql,params,function(err, rows){
+	connection.query(sql,function(err, rows){
 		if (err) throw err;
 		if (rows){
             res.send(
