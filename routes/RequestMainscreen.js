@@ -12,8 +12,8 @@ router.get('/requestmainscreen', function(req,res) {
 	connection.query(sql,function(err, rows){
 		if (err) throw err;
 		if (rows){
-            res.send(
-                "feeds"  
+            res.send({
+                "feeds": 
                 [
                     {
                         uid : rows[0].user_id,
@@ -54,7 +54,7 @@ router.get('/requestmainscreen', function(req,res) {
                         content_language : rows[4].language_type,
                         post_id : rows[4].post_id
                     }                    
-                ]);
+                ]});
 		} 
         else 
         {
