@@ -50,7 +50,8 @@ router.get('/requestmainscreen', function(req,res) {
                     }                    
                 ]);
 		} 
-        else {
+        else 
+        {
             res.send({data : fail});
 		}
 	})

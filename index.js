@@ -31,6 +31,7 @@ app.use(expressSession({
 
 app.use('/', route)
 app.use(reqSign)
+app.use(reqMain)
 
 app.get('/pushdata', (req, res) => {
   var data = req.query.data;
