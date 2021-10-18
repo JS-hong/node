@@ -25,7 +25,7 @@ router.post('/postwrite', function(req,res) {
 		if (err) throw err;
 		if (rows)
         {
-            res.send({data : success});
+            res.send({data : 'success'});
 		} 
         else 
         {
