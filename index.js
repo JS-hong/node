@@ -7,10 +7,14 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var cookieSession = require('cookie-session');
 var flash = require('connect-flash');
+
 var db = require('./routes/mysqlconnect');
 var route = require('./routes/router');
 var reqMain = require('./routes/RequestMainscreen');
 var reqSign = require('./routes/requestSingUp');
+var Postwrite = require('./routes/PostWrite');
+var reqBookmark = require('./routes/reqBookMark');
+var postBookmark = require('./routes/postBookMark');
 
 var app = express();
 
@@ -32,6 +36,9 @@ app.use(expressSession({
 app.use('/', route)
 app.use(reqSign)
 app.use(reqMain)
+app.use(Postwrite)
+app.use(reqBookmark)
+app.use(postBookmark)
 
 app.get('/pushdata', (req, res) => {
   var data = req.query.data;
