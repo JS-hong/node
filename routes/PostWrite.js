@@ -19,7 +19,7 @@ router.post('/postwrite', function(req,res) {
     var sql = "INSERT INTO PostwriteDB(user_id,maintext,subtext,tag,language_type,"
     + "language_thumbnail,writer_nickname,writer_thumbnail,line_of_code,bookmark_saved)" 
     + "VALUES(?,?,?,?,?,?,?,?,?,?)";
-	var params = [uid,maintext,subtext,tag,write_time,language_type,language_thumbnail,writer_nickname,writer_thumbnail,line_of_code,'0'];
+	var params = [uid,maintext,subtext,tag,language_type,language_thumbnail,writer_nickname,writer_thumbnail,line_of_code,'0'];
 	
 	db.query(sql,params,function(err, rows){
 		if (err) throw err;
