@@ -9,7 +9,7 @@ router.get('/requestmainscreen', function(req,res) {
     var sql = "select PostwriteDB.post_id,ifnull(bookmark_db.bookmark,0) bookmark,"
     + "PostwriteDB.user_id,PostwriteDB.subtext,PostwriteDB.tag,"
     + "PostwriteDB.language_type,PostwriteDB.write_time,PostwriteDB.writer_nickname,"
-    + "PostwriteDB.writer_thumbnail,PostwriteDB.language_thumbnail,PostwriteDB.line_of_code,PostwriteDB.bookmark_saved"
+    + "PostwriteDB.writer_thumbnail,PostwriteDB.language_thumbnail,PostwriteDB.line_of_code,PostwriteDB.bookmark_saved "
     + "from PostwriteDB left join bookmark_db"
     + "on PostwriteDB.post_id = bookmark_db.post_id";
 
