@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var cookieSession = require('cookie-session');
 var flash = require('connect-flash');
-
 var db = require('./routes/mysqlconnect');
 var route = require('./routes/router');
 var reqMain = require('./routes/RequestMainscreen');
