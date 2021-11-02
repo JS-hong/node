@@ -7,7 +7,7 @@ router.post('/postBookmark', function(req,res) {
     const uid = req.body.user_id;
     const postid = req.body.post_id;
 
-    var sql = 'INSERT INTO bookmark_db(uid,postid,bookmark) VALUES(?,?,?)';
+    var sql = 'INSERT INTO bookmark_db(user_id,post_id,bookmark) VALUES(?,?,?)';
 	var params = [uid,postid,'1'];
 
 
