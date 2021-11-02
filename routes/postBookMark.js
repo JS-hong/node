@@ -14,7 +14,7 @@ router.post('/postBookmark', function(req,res) {
     connection.query(sql,params,function(err, rows){
 		if (err) throw err;
 		if (rows){
-            res.send({data : "success"});
+            res.send({data : 'success'});
 		} 
         else 
         {
