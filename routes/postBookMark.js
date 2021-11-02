@@ -2,7 +2,7 @@ var express = require('express');
 var connection = require('./mysqlconnect');
 const router = express.Router();
 
-router.get('/postBookmark', function(req,res) {
+router.post('/postBookmark', function(req,res) {
     
     const uid = req.body.user_id;
     const postid = req.body.post_id;
