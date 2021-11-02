@@ -14,6 +14,7 @@ var reqSign = require('./routes/requestSingUp');
 var Postwrite = require('./routes/PostWrite');
 var reqBookmark = require('./routes/reqBookMark');
 var postBookmark = require('./routes/postBookMark');
+var cancleBookmark = require('./routes/cancleBookmark');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use(reqMain)
 app.use(Postwrite)
 app.use(reqBookmark)
 app.use(postBookmark)
+app.use(cancleBookmark)
 
 app.get('/pushdata', (req, res) => {
   var data = req.query.data;
