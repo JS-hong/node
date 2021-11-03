@@ -6,7 +6,7 @@ router.get('/requestmainscreen', function(req,res) {
 
     const uid = req.body.user_id;
 
-    var sql = "select PostwriteDB.post_id,IFNULL(( SELECT bookmark FROM bookmark_db WHERE user_id ='?' ),0) bookmark , "
+    var sql = "select PostwriteDB.post_id,IFNULL((bookmark_db.bookmark AND bookmark_db.user_id=?),0) bookamrk, "
     + "PostwriteDB.user_id,PostwriteDB.subtext,PostwriteDB.tag, "
     + "PostwriteDB.language_type,PostwriteDB.write_time,PostwriteDB.writer_nickname, "
     + "PostwriteDB.writer_thumbnail,PostwriteDB.language_thumbnail,PostwriteDB.line_of_code,PostwriteDB.bookmark_saved "
