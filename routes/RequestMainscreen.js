@@ -14,6 +14,9 @@ router.get('/requestmainscreen', function(req,res) {
     + "on PostwriteDB.post_id = bookmark_db.post_id "
     + "order by write_time desc ";
 
+    console.log(uid);
+    console.log(sql);
+
 	var params = [uid];
 	
 	connection.query(sql,params,function(err, rows){
