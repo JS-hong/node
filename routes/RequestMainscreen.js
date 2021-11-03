@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/requestmainscreen', function(req,res) {
 
-    const uid = req.body.user_id;
+    const uid = req.query.user_id; //get 일때는 query post 일때는 body
 
     var sql = "select PostwriteDB.post_id,IFNULL((bookmark_db.bookmark AND bookmark_db.user_id='?'),0) bookmark, "
     + "PostwriteDB.user_id,PostwriteDB.subtext,PostwriteDB.tag, "
