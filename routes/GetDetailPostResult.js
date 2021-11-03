@@ -5,7 +5,7 @@ router.post('/getdetailpostresult', function(req,res) {
 
     const postid = req.body.post_id; //post data 받음
 
-    var sql = 'select * PostwriteDB where post_id=?';
+    var sql = 'select * PostwriteDB where post_id=? ';
 	var params = [postid];
 	
 	db.query(sql,params,function(err,rows){

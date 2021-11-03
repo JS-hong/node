@@ -8,6 +8,7 @@ var flash = require('connect-flash');
 var db = require('./routes/mysqlconnect');
 var route = require('./routes/router');
 var reqMain = require('./routes/RequestMainscreen');
+var reqDetail = require('./routes/GetDetailPostResult');
 var reqSign = require('./routes/requestSingUp');
 var Postwrite = require('./routes/PostWrite');
 var reqBookmark = require('./routes/reqBookMark');
@@ -38,6 +39,7 @@ app.use(Postwrite)
 app.use(reqBookmark)
 app.use(postBookmark)
 app.use(cancleBookmark)
+app.use(reqDetail)
 
 app.get('/pushdata', (req, res) => {
   var data = req.query.data;
