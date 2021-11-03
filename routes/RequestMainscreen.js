@@ -34,7 +34,7 @@ router.get('/requestmainscreen', function(req,res) {
                         writer_thumbnail : rows[0].writer_thumbnail,
                         line_of_code : rows[0].line_of_code,
                         bookmark_saved : rows[0].bookmark_saved,
-                        bookmark : rows[0].bookmarked
+                        bookmark : rows[0]
                     },
                     {
                         uid : rows[1].user_id,
