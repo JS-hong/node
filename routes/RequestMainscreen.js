@@ -34,7 +34,7 @@ router.get('/requestmainscreen', function(req,res) {
                         writer_thumbnail : rows[0].writer_thumbnail,
                         line_of_code : rows[0].line_of_code,
                         bookmark_saved : rows[0].bookmark_saved,
-                        bookmark : rows[0]
+                        bookmark : rows[0].bookmarked
                     },
                     {
                         uid : rows[1].user_id,
@@ -48,7 +48,7 @@ router.get('/requestmainscreen', function(req,res) {
                         writer_thumbnail : rows[1].writer_thumbnail,
                         line_of_code : rows[1].line_of_code,
                         bookmark_saved : rows[1].bookmark_saved,
-                        bookmark : rows[1].bookmark
+                        bookmark : rows[1].bookmarked
                     },
                     {
                         uid : rows[2].user_id,
@@ -62,7 +62,7 @@ router.get('/requestmainscreen', function(req,res) {
                         writer_thumbnail : rows[2].writer_thumbnail,
                         line_of_code : rows[2].line_of_code,
                         bookmark_saved : rows[2].bookmark_saved,
-                        bookmark : rows[2].bookmark
+                        bookmark : rows[2].bookmarked
                     },
                     {
                         uid : rows[3].user_id,
@@ -76,7 +76,7 @@ router.get('/requestmainscreen', function(req,res) {
                         writer_thumbnail : rows[3].writer_thumbnail,
                         line_of_code : rows[3].line_of_code,
                         bookmark_saved : rows[3].bookmark_saved,
-                        bookmark : rows[3].bookmark
+                        bookmark : rows[3].bookmarked
                     },                    
                     {
                         uid : rows[4].user_id,
@@ -90,7 +90,7 @@ router.get('/requestmainscreen', function(req,res) {
                         writer_thumbnail : rows[4].writer_thumbnail,
                         line_of_code : rows[4].line_of_code,
                         bookmark_saved : rows[4].bookmark_saved,
-                        bookmark : rows[4].bookmark
+                        bookmark : rows[4].bookmarked
                     }                    
                 ]});
 		} 
