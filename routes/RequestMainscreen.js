@@ -6,7 +6,7 @@ router.get('/requestmainscreen', function(req,res) {
 
     const uid = req.body.user_id;
 
-    var sql = "select PostwriteDB.post_id,IFNULL(( SELECT bookmark FROM bookmark_db WHERE user_id ='?' ),0) bookamrk, "
+    var sql = "select PostwriteDB.post_id,IFNULL(( SELECT bookmark FROM bookmark_db WHERE user_id ='?' ),0) bookamrked , "
     + "PostwriteDB.user_id,PostwriteDB.subtext,PostwriteDB.tag, "
     + "PostwriteDB.language_type,PostwriteDB.write_time,PostwriteDB.writer_nickname, "
     + "PostwriteDB.writer_thumbnail,PostwriteDB.language_thumbnail,PostwriteDB.line_of_code,PostwriteDB.bookmark_saved "
@@ -34,7 +34,7 @@ router.get('/requestmainscreen', function(req,res) {
                         writer_thumbnail : rows[0].writer_thumbnail,
                         line_of_code : rows[0].line_of_code,
                         bookmark_saved : rows[0].bookmark_saved,
-                        bookmark : rows[0].bookmark
+                        bookmark : rows[0]
                     },
                     {
                         uid : rows[1].user_id,
