@@ -22,7 +22,7 @@ router.post('/reqBookmark', function(req,res) {
 		if (err) throw err;
 		if (rows){
             for(var i = 0 ; i< maxValue ; i++){
-                res.send({
+                res.json({
                     uid : rows[i].user_id,
                     title : rows[i].subtext,
                     post_tag : rows[i].tag,
@@ -35,8 +35,8 @@ router.post('/reqBookmark', function(req,res) {
                     line_of_code : rows[i].line_of_code,
                     bookmark_saved : rows[i].bookmark_saved,
                     bookmark : rows[i].bookmark
-                })
-            };
+                });
+            }
 		} 
         else 
         {
