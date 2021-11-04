@@ -1,4 +1,5 @@
 var express = require('express');
+const router = express.Router();
 var db = require('./mysqlconnect');
 
 router.get('/getdetailpostresult', function(req,res) {
