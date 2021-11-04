@@ -21,21 +21,9 @@ router.post('/reqBookmark', function(req,res) {
 
 		if (err) throw err;
 		if (rows){
-            for(var i = 0 ; i< maxValue ; i++){
-                res.json({
-                    uid : rows[i].user_id,
-                    title : rows[i].subtext,
-                    post_tag : rows[i].tag,
-                    language_type : rows[i].language_type,
-                    language_thumbnails : rows[i].language_thumbnail,
-                    post_id : rows[i].post_id,
-                    write_time : rows[i].write_time,
-                    writer_nickname : rows[i].writer_nickname,
-                    writer_thumbnail : rows[i].writer_thumbnail,
-                    line_of_code : rows[i].line_of_code,
-                    bookmark_saved : rows[i].bookmark_saved,
-                    bookmark : rows[i].bookmark
-                });
+            for(var i=0 ;i<maxValue;i++){
+                console.log(i)
+                console.log(maxValue)
             }
 		} 
         else 
