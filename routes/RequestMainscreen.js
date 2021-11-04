@@ -17,6 +17,8 @@ router.get('/requestmainscreen', function(req,res) {
 	var params = [uid];
 	
 	connection.query(sql,params,function(err, rows){
+        const maxValue = Math.max.apply(null, rows);
+
 		if (err) throw err;
 		if (rows){
             res.send({

@@ -7,6 +7,7 @@ var morgan = require('morgan');
 var flash = require('connect-flash');
 var db = require('./routes/mysqlconnect');
 var route = require('./routes/router');
+var reqSearch = require('./routes/reqSearch');
 var reqMain = require('./routes/RequestMainscreen');
 var reqDetail = require('./routes/GetDetailPostResult');
 var reqSign = require('./routes/requestSingUp');
@@ -40,6 +41,7 @@ app.use(reqBookmark)
 app.use(postBookmark)
 app.use(cancleBookmark)
 app.use(reqDetail)
+app.use(reqSearch)
 
 app.get('/pushdata', (req, res) => {
   var data = req.query.data;
