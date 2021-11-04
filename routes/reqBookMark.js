@@ -16,15 +16,15 @@ router.post('/reqBookmark', function(req,res) {
 
 	var params = [uid];
 
-    connection.query(sql,params,function(err,rows){
-        
-		if (err) throw err;
-		if (rows){
-            console.log(rows[0])
-		} 
+    connection.query(sql,params,function(err,rows){        
+		if(err){
+            console.log(err);
+        }
         else 
         {
-            res.send({data : fail});
+            for(var i = 0; i < rows.length; i++){
+                console.log(rows[i].post_id);
+            }
 		}
 	})
 })
