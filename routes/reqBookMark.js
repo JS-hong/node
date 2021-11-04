@@ -18,13 +18,18 @@ router.post('/reqBookmark', function(req,res) {
 
     connection.query(sql,params,function(err,rows){
         const maxValue = Math.max.apply(null, rows);
-
 		if (err) throw err;
 		if (rows){
-            for(var i=0 ;i<maxValue;i++){
+
+            try {
+                for(var i=0 ;i<maxValue;i++){
                 console.log(i)
                 console.log(maxValue)
+                }           
             }
+            catch(e){
+                console.log('error');
+            }    
 		} 
         else 
         {
