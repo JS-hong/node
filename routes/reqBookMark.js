@@ -17,10 +17,10 @@ router.post('/reqBookmark', function(req,res) {
 	var params = [uid];
 
     connection.query(sql,params,function(err,rows){
-        var maxValue = rows.length;
+        
 		if (err) throw err;
 		if (rows){
-            console.log(maxValue)
+            console.log(rows.length)
 		} 
         else 
         {
