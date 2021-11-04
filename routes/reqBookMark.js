@@ -22,8 +22,6 @@ router.post('/reqBookmark', function(req,res) {
 		if (err) throw err;
 		if (rows){
             for(var i = 0 ; i< maxValue ; i++){
-                console.log(i);
-                
                 res.send({
                     uid : rows[i].user_id,
                     title : rows[i].subtext,
@@ -37,8 +35,8 @@ router.post('/reqBookmark', function(req,res) {
                     line_of_code : rows[i].line_of_code,
                     bookmark_saved : rows[i].bookmark_saved,
                     bookmark : rows[i].bookmark
-                });
-            }
+                })
+            };
 		} 
         else 
         {
