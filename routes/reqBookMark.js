@@ -22,6 +22,8 @@ router.post('/reqBookmark', function(req,res) {
 		if (err) throw err;
 		if (rows){
             for(var i = 0 ; i< maxValue ; i++){
+                console.log(i);
+                
                 res.send({
                     uid : rows[i].user_id,
                     title : rows[i].subtext,
