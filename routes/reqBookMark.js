@@ -16,7 +16,7 @@ router.post('/reqBookmark', function(req,res) {
 
 	var params = [uid];
 
-    connection.query(sql,params,function(err,rows){        
+    connection.query(sql,params,function(err,rows,fields){        
 		if(err){
             console.log(err);
         }
