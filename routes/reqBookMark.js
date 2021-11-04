@@ -23,9 +23,9 @@ router.post('/reqBookmark', function(req,res) {
 
             try {
                 for(var i=0 ;i<maxValue;i++){
-                console.log(i)
-                console.log(maxValue)
-                }           
+                console.log(i);
+                console.log(maxValue);
+                };          
             }
             catch(e){
                 console.log('error');
