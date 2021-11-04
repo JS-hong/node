@@ -17,7 +17,7 @@ router.post('/reqBookmark', function(req,res) {
 	var params = [uid];
 
     connection.query(sql,params,function(err,rows){
-        var maxValue = Math.max.apply(null, rows);
+        var maxValue = rows.length;
 		if (err) throw err;
 		if (rows){
             console.log(maxValue)
