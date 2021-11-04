@@ -20,7 +20,7 @@ router.post('/reqBookmark', function(req,res) {
         
 		if (err) throw err;
 		if (rows){
-            console.log(rows.length)
+            console.log(rows)
 		} 
         else 
         {
