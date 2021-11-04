@@ -40,7 +40,7 @@ router.post('/reqBookmark', function(req,res) {
             }
             console.log(jsonObject)
             res.json({
-            aaa
+                jsonObject
             });
 		}
 	})
