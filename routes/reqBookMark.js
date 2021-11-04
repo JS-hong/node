@@ -20,16 +20,7 @@ router.post('/reqBookmark', function(req,res) {
         const maxValue = Math.max.apply(null, rows);
 		if (err) throw err;
 		if (rows){
-
-            try {
-                for(var i=0 ;i<maxValue;i++){
-                console.log(i);
-                console.log(maxValue);
-                };          
-            }
-            catch(e){
-                console.log('error');
-            }    
+            console.log(maxValue)
 		} 
         else 
         {
