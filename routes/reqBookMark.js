@@ -23,7 +23,7 @@ router.post('/reqBookmark', function(req,res) {
         else 
         {
             for(var i = 0; i < rows.length; i++){
-                res.json({
+                var jsonObject = {
                     uid : rows[i].user_id,
                     title : rows[i].subtext,
                     post_tag : rows[i].tag,
@@ -35,9 +35,13 @@ router.post('/reqBookmark', function(req,res) {
                     writer_thumbnail : rows[i].writer_thumbnail,
                     line_of_code : rows[i].line_of_code,
                     bookmark_saved : rows[i].bookmark_saved,
-                    bookmark : rows[i].bookmark
-                });
+                    bookmark : rows[i].bookmark  
+                };
             }
+
+            res.json({
+                jsonObject
+            });
 		}
 	})
 })
