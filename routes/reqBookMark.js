@@ -16,7 +16,7 @@ router.post('/reqBookmark', function(req,res) {
 
 	var params = [uid];
     var feeds = new Object();
-    
+
 
     connection.query(sql,params,function(err,rows,fields){        
 		if(err){
@@ -41,7 +41,7 @@ router.post('/reqBookmark', function(req,res) {
                 })
             }
             res.json({
-                json
+                feeds
             });
 		}
 	})
