@@ -25,10 +25,10 @@ router.post('/reqBookmark', function(req,res) {
         }
         if (rows){
             feeds : rows[0].user_id
-
-            console.log(feeds)
         }
 	})
+
+    console.log(feeds)
 })
 
 module.exports = router;
