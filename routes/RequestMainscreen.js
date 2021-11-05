@@ -19,11 +19,10 @@ router.post('/requestmainscreen', function(req,res) {
     var json = [];
 	connection.query(sql,params,function(err,rows,fields){
 		if (err) throw err;
-        if (rows){
-            var random = Math.floor(Math.random()*rows.length);
-            console.log(random)          
+        if (rows){       
             var n = 0;
             while(n<5){
+                var random = Math.floor(Math.random()*rows.length);
                 json.push({
                     uid : rows[random].user_id,
                     title : rows[random].subtext,
