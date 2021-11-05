@@ -26,19 +26,19 @@ router.post('/reqBookmark', function(req,res) {
         else 
         {
             for(var i = 0; i < rows.length; i++){
-               feeds.push({
-                uid : rows[i].user_id,
-                title : rows[i].subtext,
-                post_tag : rows[i].tag,
-                language_type : rows[i].language_type,
-                language_thumbnails : rows[i].language_thumbnail,
-                post_id : rows[i].post_id,
-                write_time : rows[i].write_time,
-                writer_nickname : rows[i].writer_nickname,
-                writer_thumbnail : rows[i].writer_thumbnail,
-                line_of_code : rows[i].line_of_code,
-                bookmark_saved : rows[i].bookmark_saved,
-                bookmark : rows[i].bookmark           
+               feeds.put({
+                uid : rows[0].user_id,
+                title : rows[0].subtext,
+                post_tag : rows[0].tag,
+                language_type : rows[0].language_type,
+                language_thumbnails : rows[0].language_thumbnail,
+                post_id : rows[0].post_id,
+                write_time : rows[0].write_time,
+                writer_nickname : rows[0].writer_nickname,
+                writer_thumbnail : rows[0].writer_thumbnail,
+                line_of_code : rows[0].line_of_code,
+                bookmark_saved : rows[0].bookmark_saved,
+                bookmark : rows[0].bookmark           
                 })
             }
             res.json({
