@@ -20,7 +20,7 @@ router.post('/requestmainscreen', function(req,res) {
 	connection.query(sql,params,function(err,rows,fields){
 		if (err) throw err;
         if (rows){
-            var random = Math.random * rows.length;
+            var random = Math.random() * rows.length;
             console.log(random)
             var n = 0;
             while(n<5){
