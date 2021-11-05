@@ -17,8 +17,6 @@ router.post('/reqBookmark', function(req,res) {
 	var params = [uid];
     var json = new Object;
     var json = [];
-    var arr = new Array();
-
 
     connection.query(sql,params,function(err,rows,fields){        
 		if(err){
@@ -43,6 +41,10 @@ router.post('/reqBookmark', function(req,res) {
             }
             res.send({"feeds": json})
         }
+        else 
+        {
+            res.send({data : 'fail'});
+		}
 	})
 })
 
