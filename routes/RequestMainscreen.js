@@ -17,7 +17,7 @@ router.post('/requestmainscreen', function(req,res) {
 	var params = [uid];
     var json = new Object;
     var json = [];
-    var arr = new Array;
+    let randomIndexArray = []
 
 	connection.query(sql,params,function(err,rows,fields){
 		if (err) throw err;
@@ -25,7 +25,7 @@ router.post('/requestmainscreen', function(req,res) {
             var n = 0;
             while(n<5){
                 var random = Math.floor(Math.random()*rows.length);
-                if(arr.indexOf(random) === -1){
+                if(randomIndexArray.indexOf(random) === -1){
                     console.log(arr)
                     json.push({
                         uid : rows[random].user_id,
@@ -42,7 +42,7 @@ router.post('/requestmainscreen', function(req,res) {
                         bookmark : rows[random].bookmark
                         })
                         
-                    arr.push(rows[random].post_id)    
+                        randomIndexArray.push(rows[random].post_id)    
                     n++;  
                 }
                 else{
