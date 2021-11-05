@@ -41,7 +41,7 @@ router.post('/reqBookmark', function(req,res) {
                     bookmark : rows[i].bookmark
                 })
             }
-            console.log(json)
+            res.send("feeds" = json)
         }
 	})
 })
