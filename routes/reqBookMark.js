@@ -24,7 +24,7 @@ router.post('/reqBookmark', function(req,res) {
         else 
         {
             for(var i = 0; i < rows.length; i++){
-               feeds.add({
+               feeds.put({
                 uid : rows[i].user_id,
                 title : rows[i].subtext,
                 post_tag : rows[i].tag,
