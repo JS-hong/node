@@ -26,7 +26,7 @@ router.post('/reqBookmark', function(req,res) {
         else 
         {
             for(var i = 0; i < rows.length; i++){
-                arr = rows.get(i);
+                arr = rows[i];
             }
             console.log(arr)
 		}
