@@ -39,11 +39,28 @@ router.post('/requestmainscreen', function(req,res) {
                         bookmark_saved : rows[random].bookmark_saved,
                         bookmark : rows[random].bookmark
                     })
-                if(randomIndexArray.indexOf(random) === -1){                        
-                        randomIndexArray.push(rows[random].post_id)    
+                    randomIndexArray.push(rows[random].post_id) 
+                    
+                if(randomIndexArray.indexOf(random) === -1){
+                    json.pop({
+                        uid : rows[random].user_id,
+                        title : rows[random].subtext,
+                        post_tag : rows[random].tag,
+                        language_type : rows[random].language_type,
+                        language_thumbnails : rows[random].language_thumbnail,
+                        post_id : rows[random].post_id,
+                        write_time : rows[random].write_time,
+                        writer_nickname : rows[random].writer_nickname,
+                        writer_thumbnail : rows[random].writer_thumbnail,
+                        line_of_code : rows[random].line_of_code,
+                        bookmark_saved : rows[random].bookmark_saved,
+                        bookmark : rows[random].bookmark
+                    })                        
+                        randomIndexArray.pop(rows[random].post_id)    
                         n-- 
                 }
                 else{
+                    randomIndexArray.push(rows[random].post_id) 
                     n++
                 }
             }
