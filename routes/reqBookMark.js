@@ -39,7 +39,7 @@ router.post('/reqBookmark', function(req,res) {
                     bookmark : rows[i].bookmark
                 })
             }
-            res.send({"feeds": json})
+            res.send({"bookmark": json})
         }
         else 
         {
