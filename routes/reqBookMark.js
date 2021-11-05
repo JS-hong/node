@@ -15,7 +15,7 @@ router.post('/reqBookmark', function(req,res) {
     + "where bookmark_db.user_id=? ";
 
 	var params = [uid];
-    var json = ["feeds"];
+    var feeds = new Object;
     var arr = new Array();
 
 
@@ -25,7 +25,7 @@ router.post('/reqBookmark', function(req,res) {
         }
         if (rows){
             for(i=0;i<rows.length;i++){
-                json.put({
+                feeds.put({
                     uid : rows[i].user_id,
                     title : rows[i].subtext,
                     post_tag : rows[i].tag,
