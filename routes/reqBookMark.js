@@ -24,8 +24,9 @@ router.post('/reqBookmark', function(req,res) {
             console.log(err);
         }
         if (rows){
-            feeds : rows[0];
-            console.log(feeds);
+            feeds.put(rows[0].user_id)
+
+            console.log(feeds)
         }
 	})
 })
