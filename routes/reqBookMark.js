@@ -16,7 +16,7 @@ router.post('/reqBookmark', function(req,res) {
 
 	var params = [uid];
     var json = new Object;
-    var json = ["feeds"];
+    var json = [];
     var arr = new Array();
 
 
@@ -41,7 +41,7 @@ router.post('/reqBookmark', function(req,res) {
                     bookmark : rows[i].bookmark
                 })
             }
-            res.send(json)
+            res.send({"feeds": json})
         }
 	})
 })
