@@ -25,9 +25,7 @@ router.post('/reqBookmark', function(req,res) {
         }
         else 
         {
-            for(var i = 0; i < 5; i++){
-                arr = rows[0].user_id
-            }
+            arr = arr.push(rows)
             console.log(arr)
 		}
 	})
