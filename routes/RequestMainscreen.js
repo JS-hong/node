@@ -40,7 +40,7 @@ router.post('/requestmainscreen', function(req,res) {
                         bookmark : rows[random].bookmark
                     })
                     randomIndexArray.push(rows[random].post_id) 
-                    
+
                 if(randomIndexArray.indexOf(random) === -1){
                     json.pop({
                         uid : rows[random].user_id,
@@ -57,11 +57,10 @@ router.post('/requestmainscreen', function(req,res) {
                         bookmark : rows[random].bookmark
                     })                        
                         randomIndexArray.pop(rows[random].post_id)    
-                        n-- 
+                        n--; 
                 }
-                else{
-                    randomIndexArray.push(rows[random].post_id) 
-                    n++
+                else{ 
+                    n++;
                 }
             }
             res.send({"feeds": json})
