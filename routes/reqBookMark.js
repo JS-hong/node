@@ -25,7 +25,7 @@ router.post('/reqBookmark', function(req,res) {
         }
         else 
         {
-            arr = arr.push(rows)
+            arr = arr.push(rows[0])
             console.log(arr)
 		}
 	})
