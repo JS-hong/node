@@ -40,7 +40,7 @@ router.post('/reqBookmark', function(req,res) {
                 })
             }
             res.json({
-                rows
+                feeds
             });
 		}
 	})
