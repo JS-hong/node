@@ -25,42 +25,26 @@ router.post('/requestmainscreen', function(req,res) {
             var n = 0;
             while(n<5){
                 var random = Math.floor(Math.random()*rows.length);
-                    json.push({
-                        uid : rows[random].user_id,
-                        title : rows[random].subtext,
-                        post_tag : rows[random].tag,
-                        language_type : rows[random].language_type,
-                        language_thumbnails : rows[random].language_thumbnail,
-                        post_id : rows[random].post_id,
-                        write_time : rows[random].write_time,
-                        writer_nickname : rows[random].writer_nickname,
-                        writer_thumbnail : rows[random].writer_thumbnail,
-                        line_of_code : rows[random].line_of_code,
-                        bookmark_saved : rows[random].bookmark_saved,
-                        bookmark : rows[random].bookmark
-                    })
-                    randomIndexArray.push(rows[random].post_id) 
-
+                json.push({
+                    uid : rows[random].user_id,
+                    title : rows[random].subtext,
+                    post_tag : rows[random].tag,
+                    language_type : rows[random].language_type,
+                    language_thumbnails : rows[random].language_thumbnail,
+                    post_id : rows[random].post_id,
+                    write_time : rows[random].write_time,
+                    writer_nickname : rows[random].writer_nickname,
+                    writer_thumbnail : rows[random].writer_thumbnail,
+                    line_of_code : rows[random].line_of_code,
+                    bookmark_saved : rows[random].bookmark_saved,
+                    bookmark : rows[random].bookmark
+                })
+                randomIndexArray.push(rows[random].post_id) 
                 if(randomIndexArray.indexOf(rows[random].post_id) === -1){ //중복이 들어있지 않을때                                               
                     n++; 
                 }
                 else{//중복이 들어있을때
-                    json.pop({
-                        uid : rows[random].user_id,
-                        title : rows[random].subtext,
-                        post_tag : rows[random].tag,
-                        language_type : rows[random].language_type,
-                        language_thumbnails : rows[random].language_thumbnail,
-                        post_id : rows[random].post_id,
-                        write_time : rows[random].write_time,
-                        writer_nickname : rows[random].writer_nickname,
-                        writer_thumbnail : rows[random].writer_thumbnail,
-                        line_of_code : rows[random].line_of_code,
-                        bookmark_saved : rows[random].bookmark_saved,
-                        bookmark : rows[random].bookmark
-                    })
                     n--;
-                    console.log(randomIndexArray)
                 }
             }
             res.send({"feeds": json})
