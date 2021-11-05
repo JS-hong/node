@@ -16,6 +16,7 @@ router.post('/reqBookmark', function(req,res) {
 
 	var params = [uid];
     var feeds = new Object();
+    feeds = [];
     var arr = new Array();
 
 
@@ -24,11 +25,10 @@ router.post('/reqBookmark', function(req,res) {
             console.log(err);
         }
         if (rows){
-            feeds : rows[0].user_id
+            feeds.put(rows[0])
         }
+        console.log(feeds)
 	})
-
-    console.log(feeds)
 })
 
 module.exports = router;
