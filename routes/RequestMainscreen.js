@@ -65,7 +65,8 @@ router.post('/requestmainscreen', function(req,res) {
                         n++ 
                     }
                     else{
-                        //중복이 들어있을때
+                        //중복일때
+                        randomIndexArray.pop(rows[random].post_id)
                         n--
                     }
                 }
