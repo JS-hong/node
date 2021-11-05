@@ -16,8 +16,8 @@ router.post('/reqBookmark', function(req,res) {
 
 	var params = [uid];
     var json = new Object;
+    var json = {};
     var arr = new Array();
-    json.feeds = [];
 
 
     connection.query(sql,params,function(err,rows,fields){        
@@ -26,7 +26,7 @@ router.post('/reqBookmark', function(req,res) {
         }
         if (rows){
             for(i=0;i<rows.length;i++){
-                json.push({
+                json.put({
                     uid : rows[i].user_id,
                     title : rows[i].subtext,
                     post_tag : rows[i].tag,
