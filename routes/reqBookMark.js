@@ -16,7 +16,6 @@ router.post('/reqBookmark', function(req,res) {
 
 	var params = [uid];
     var feeds = new Object();
-    feeds = [];
     var arr = new Array();
 
 
@@ -25,7 +24,9 @@ router.post('/reqBookmark', function(req,res) {
             console.log(err);
         }
         if (rows){
-            feeds.push(rows[0])
+            for(i=0;i<rows.length;i++){
+                feeds.push(rows[i])
+            }
         }
         console.log(feeds)
 	})
