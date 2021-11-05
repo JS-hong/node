@@ -23,11 +23,10 @@ router.post('/reqBookmark', function(req,res) {
 		if(err){
             console.log(err);
         }
-        else 
-        {
-            arr = arr.push(rows[0])
-            console.log(arr)
-		}
+        if (rows){
+            feeds : rows[0];
+            console.log(feeds);
+        }
 	})
 })
 
