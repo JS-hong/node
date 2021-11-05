@@ -23,6 +23,7 @@ router.post('/requestmainscreen', function(req,res) {
 		if (err) throw err;
         if (rows){       
             var n = 0;
+            var i = 0;
             do{
                 var random = Math.floor(Math.random()*rows.length);
                 json.push({
