@@ -41,7 +41,7 @@ router.post('/requestmainscreen', function(req,res) {
                     })
                     randomIndexArray.push(rows[random].post_id) 
 
-                if(randomIndexArray.indexOf(random) === -1){ //중복이 들어있지 않을때                                               
+                if(randomIndexArray.indexOf(rows[random].post_id) === -1){ //중복이 들어있지 않을때                                               
                     n++; 
                 }
                 else{//중복이 들어있을때
