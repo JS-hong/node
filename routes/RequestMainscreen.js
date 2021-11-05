@@ -45,7 +45,7 @@ router.post('/requestmainscreen', function(req,res) {
             while(n<5){
                 var random = Math.floor(Math.random()*rows.length);
 
-                if(randomIndexArray.indexOf(rows[random].post_id) === -1){ 
+                if(randomIndexArray.indexOf(rows[random].post_id) == -1){ 
                     //중복이 들어있지 않을때
                     json.push({
                         uid : rows[random].user_id,
@@ -62,11 +62,11 @@ router.post('/requestmainscreen', function(req,res) {
                         bookmark : rows[random].bookmark
                     })
                     randomIndexArray.push(rows[random].post_id)                                               
-                    n++; 
+                    n++ 
                 }
                 else{
                     //중복이 들어있을때
-                    n--;
+                    n--
                 }
             }
             res.send({"feeds": json})
