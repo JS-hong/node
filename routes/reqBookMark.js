@@ -16,7 +16,7 @@ router.post('/reqBookmark', function(req,res) {
 
 	var params = [uid];
     var json = new Object;
-    var json = {};
+    var json = [];
     var arr = new Array();
 
 
