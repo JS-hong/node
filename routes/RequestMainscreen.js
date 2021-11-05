@@ -59,7 +59,6 @@ router.post('/requestmainscreen', function(req,res) {
                         bookmark_saved : rows[random].bookmark_saved,
                         bookmark : rows[random].bookmark
                     })
-                    randomIndexArray.pop(rows[random].post_id)  
                     n--;
                 }
             }
