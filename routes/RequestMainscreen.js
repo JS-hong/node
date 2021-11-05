@@ -44,25 +44,28 @@ router.post('/requestmainscreen', function(req,res) {
             }
             while(n<5){
                 var random = Math.floor(Math.random()*rows.length);
-                for(i=0;i<randomIndexArray.length;i++){
+                json.push({
+                    uid : rows[random].user_id,
+                    title : rows[random].subtext,
+                    post_tag : rows[random].tag,
+                    language_type : rows[random].language_type,
+                    language_thumbnails : rows[random].language_thumbnail,
+                    post_id : rows[random].post_id,
+                    write_time : rows[random].write_time,
+                    writer_nickname : rows[random].writer_nickname,
+                    writer_thumbnail : rows[random].writer_thumbnail,
+                    line_of_code : rows[random].line_of_code,
+                    bookmark_saved : rows[random].bookmark_saved,
+                    bookmark : rows[random].bookmark
+                })
+
+                randomIndexArray.push(rows[random].post_id)                                               
+                n++ 
+
+                while(i<randomIndexArray.length){
                     if(randomIndexArray[i] != rows[random].post_id){ 
                         //중복이 아닐때
-                        json.push({
-                            uid : rows[random].user_id,
-                            title : rows[random].subtext,
-                            post_tag : rows[random].tag,
-                            language_type : rows[random].language_type,
-                            language_thumbnails : rows[random].language_thumbnail,
-                            post_id : rows[random].post_id,
-                            write_time : rows[random].write_time,
-                            writer_nickname : rows[random].writer_nickname,
-                            writer_thumbnail : rows[random].writer_thumbnail,
-                            line_of_code : rows[random].line_of_code,
-                            bookmark_saved : rows[random].bookmark_saved,
-                            bookmark : rows[random].bookmark
-                        })
-                        randomIndexArray.push(rows[random].post_id)                                               
-                        n++ 
+                        i++
                     }
                     else{
                         //중복일때
@@ -79,8 +82,9 @@ router.post('/requestmainscreen', function(req,res) {
                             line_of_code : rows[random].line_of_code,
                             bookmark_saved : rows[random].bookmark_saved,
                             bookmark : rows[random].bookmark
-                            })
-                        randomIndexArray.pop(rows[random].post_id)
+                        })
+        
+                        randomIndexArray.pop(rows[random].post_id) 
                         n--
                     }
                 }
