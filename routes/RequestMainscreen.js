@@ -60,6 +60,7 @@ router.post('/requestmainscreen', function(req,res) {
                         bookmark : rows[random].bookmark
                     })
                     n--;
+                    console.log(randomIndexArray)
                 }
             }
             res.send({"feeds": json})
