@@ -26,7 +26,6 @@ router.post('/requestmainscreen', function(req,res) {
             while(n<5){
                 var random = Math.floor(Math.random()*rows.length);
                 if(randomIndexArray.indexOf(random) === -1){
-                    console.log(randomIndexArray)
                     json.push({
                         uid : rows[random].user_id,
                         title : rows[random].subtext,
