@@ -24,7 +24,7 @@ router.post('/requestmainscreen', function(req,res) {
         if (rows){       
             const selectIndex = (totalIndex, selectingNumber) => {
                 for (i=0; i<selectingNumber; i++) {   //check if there is any duplicate index
-                  randomNum = Math.floor(Math.random() * totalIndex)
+                  random = Math.floor(Math.random() * totalIndex)
                   if (randomIndexArray.indexOf(randomNum) === -1) {
                     randomIndexArray.push(randomNum)
 
