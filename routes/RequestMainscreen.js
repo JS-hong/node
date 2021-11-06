@@ -22,41 +22,34 @@ router.post('/requestmainscreen', function(req,res) {
 	connection.query(sql,params,function(err,rows,fields){
 		if (err) throw err;
         if (rows){       
-
-            function lottoNum (array) {
-                if (! array) {
-                    var array = [];
-                }
-                let n = Math.floor(Math.random() * rows.length);
-
-                if (array.length < 5 && array.indexOf(n) < 0) {
-                    
-                    array.push(n);
+            const selectIndex = (totalIndex, selectingNumber) => {
+                for (i=0; i<selectingNumber; i++) {   //check if there is any duplicate index
+                  randomNum = Math.floor(Math.random() * totalIndex)
+                  if (randomIndexArray.indexOf(randomNum) === -1) {
+                    randomIndexArray.push(randomNum)
 
                     json.push({
-                        uid : rows[n].user_id,
-                        title : rows[n].subtext,
-                        post_tag : rows[n].tag,
-                        language_type : rows[n].language_type,
-                        language_thumbnails : rows[n].language_thumbnail,
-                        post_id : rows[n].post_id,
-                        write_time : rows[n].write_time,
-                        writer_nickname : rows[n].writer_nickname,
-                        writer_thumbnail : rows[n].writer_thumbnail,
-                        line_of_code : rows[n].line_of_code,
-                        bookmark_saved : rows[n].bookmark_saved,
-                        bookmark : rows[n].bookmark
+                        uid : rows[random].user_id,
+                        title : rows[random].subtext,
+                        post_tag : rows[random].tag,
+                        language_type : rows[random].language_type,
+                        language_thumbnails : rows[random].language_thumbnail,
+                        post_id : rows[random].post_id,
+                        write_time : rows[random].write_time,
+                        writer_nickname : rows[random].writer_nickname,
+                        writer_thumbnail : rows[random].writer_thumbnail,
+                        line_of_code : rows[random].line_of_code,
+                        bookmark_saved : rows[random].bookmark_saved,
+                        bookmark : rows[random].bookmark
                         })
+                  } 
+                  else { //if the randomNum is already in the array retry
+                    i--
+                  }
+                }
+                return randomIndexArray
+              }
 
-                    return lottoNum(array);
-                } 
-                else if(array.length>5) {
-                    return array;
-                }
-                else
-                    return lottoNum(array);
-                }
-                lottoNum();
             res.send({"feeds": json})
         }
         else 
