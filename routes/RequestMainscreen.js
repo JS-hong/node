@@ -22,8 +22,8 @@ router.post('/requestmainscreen', function(req,res) {
 	connection.query(sql,params,function(err,rows,fields){
 		if (err) throw err;
         if (rows){       
-            const selectIndex = (totalIndex, selectingNumber) => {
-                for (i=0; i<selectingNumber; i++) {   //check if there is any duplicate index
+            
+                for (i=0; i<5; i++) {   //check if there is any duplicate index
                   random = Math.floor(Math.random() * totalIndex)
                   if (randomIndexArray.indexOf(randomNum) === -1) {
                     randomIndexArray.push(randomNum)
@@ -47,9 +47,6 @@ router.post('/requestmainscreen', function(req,res) {
                     i--
                   }
                 }
-                return randomIndexArray
-              }
-
             res.send({"feeds": json})
         }
         else 
