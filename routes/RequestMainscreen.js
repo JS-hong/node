@@ -40,6 +40,7 @@ router.post('/requestmainscreen', function(req,res) {
                     bookmark_saved : rows[random].bookmark_saved,
                     bookmark : rows[random].bookmark
                     })
+                    
                     randomIndexArray.push(rows[random].post_id)    
                     n++;
             }
@@ -61,7 +62,6 @@ router.post('/requestmainscreen', function(req,res) {
                 })
 
                 randomIndexArray.push(rows[random].post_id)                                               
-                n++ 
 
                 while(i<randomIndexArray.length){
                     if(randomIndexArray[i] != rows[random].post_id){ 
@@ -70,7 +70,7 @@ router.post('/requestmainscreen', function(req,res) {
                     }
                     else{
                         //중복일때
-                        json.pop({
+                        json[i].pop({
                             uid : rows[random].user_id,
                             title : rows[random].subtext,
                             post_tag : rows[random].tag,
@@ -85,7 +85,7 @@ router.post('/requestmainscreen', function(req,res) {
                             bookmark : rows[random].bookmark
                         })
         
-                        randomIndexArray.pop(rows[random].post_id) 
+                        randomIndexArray[i].pop(rows[random].post_id) 
                         n--
                     }
                 }
