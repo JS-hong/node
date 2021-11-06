@@ -24,9 +24,9 @@ router.post('/requestmainscreen', function(req,res) {
         if (rows){       
             
                 for (i=0; i<5; i++) {   //check if there is any duplicate index
-                  random = Math.floor(Math.random() * totalIndex)
-                  if (randomIndexArray.indexOf(randomNum) === -1) {
-                    randomIndexArray.push(randomNum)
+                  random = Math.floor(Math.random() * rows.length)
+                  if (randomIndexArray.indexOf(random) === -1) {
+                    randomIndexArray.push(random)
 
                     json.push({
                         uid : rows[random].user_id,
