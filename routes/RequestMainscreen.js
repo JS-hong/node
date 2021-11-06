@@ -70,7 +70,7 @@ router.post('/requestmainscreen', function(req,res) {
                     }
                     else{
                         //중복일때
-                        json[i].pop({
+                        json.pop({
                             uid : rows[random].user_id,
                             title : rows[random].subtext,
                             post_tag : rows[random].tag,
