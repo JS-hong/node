@@ -89,6 +89,7 @@ router.post('/requestmainscreen', function(req,res) {
                 })
 
                 randomIndexArray.push(rows[random].post_id)
+                n++
             }
             res.send({"feeds": json})
         }
