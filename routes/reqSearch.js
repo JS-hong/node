@@ -42,7 +42,7 @@ router.get('/getmypost', function(req,res) {
                   i--
                 }
               }
-          res.send({"feeds": json})
+          res.send({"search": json})
 		} 
         else {
             res.send({
