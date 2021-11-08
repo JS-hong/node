@@ -14,7 +14,10 @@ router.post('/reqsearch', function(req,res) {
     + "on PostwriteDB.post_id = bookmark_db.post_id "
     + "where maintext=? or subtext=? ";
 	var params = [uid,search_dt,search_dt];
-	
+    var json = new Object;
+    var json = [];
+    let randomIndexArray = []
+    
 	connection.query(sql,params,function(err,rows){
 		if (err) throw err;
         if (rows){
