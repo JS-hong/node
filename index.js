@@ -13,6 +13,7 @@ var reqDetail = require('./routes/GetDetailPostResult');
 var reqSign = require('./routes/requestSingUp');
 var Postwrite = require('./routes/PostWrite');
 var reqBookmark = require('./routes/reqBookMark');
+var reqSearch = require('./routes/reqSearch');
 var postBookmark = require('./routes/postBookMark');
 var cancleBookmark = require('./routes/cancleBookmark');
 
