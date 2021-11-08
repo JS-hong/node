@@ -3,11 +3,17 @@ var connection = require('./mysqlconnect');
 const router = express.Router();
 
 router.get('/getmypost', function(req,res) {
-
+    
+    const uid = req.body.user_id;
     const search_dt = req.query.search_data; //get data 받음
-
-    var sql = 'select * from PostwriteDB where maintext=? or subtext=? ';
-	var params = [search_dt,search_dt];
+    var sql = "select PostwriteDB.post_id,IFNULL((bookmark_db.bookmark AND bookmark_db.user_id=?),0) bookmark, "
+    + "PostwriteDB.user_id,PostwriteDB.subtext,PostwriteDB.tag, "
+    + "PostwriteDB.language_type,PostwriteDB.write_time,PostwriteDB.writer_nickname, "
+    + "PostwriteDB.writer_thumbnail,PostwriteDB.language_thumbnail,PostwriteDB.line_of_code,PostwriteDB.bookmark_saved "
+    + "from PostwriteDB left join bookmark_db "
+    + "on PostwriteDB.post_id = bookmark_db.post_id "
+    + "where maintext=? or subtext=? ";
+	var params = [uid,search_dt,search_dt];
 	
 	connection.query(sql,params,function(err,rows){
 		if (err) throw err;
