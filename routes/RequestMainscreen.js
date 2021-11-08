@@ -21,8 +21,7 @@ router.post('/requestmainscreen', function(req,res) {
 
 	connection.query(sql,params,function(err,rows,fields){
 		if (err) throw err;
-        if (rows){       
-            
+        if (rows){                
                 for (i=0; i<5; i++) {   //check if there is any duplicate index
                   random = Math.floor(Math.random() * rows.length)
                   if (randomIndexArray.indexOf(random) === -1) {
