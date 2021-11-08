@@ -43,8 +43,7 @@ router.get('/getmypost', function(req,res) {
                         data : fail
                     });
 		}
-      }
-	})
-})
+      })
+    })
 
 module.exports = router;
