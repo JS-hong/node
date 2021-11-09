@@ -22,7 +22,7 @@ router.post('/reqsearch', function(req,res) {
 	connection.query(sql,params,function(err,rows){
 		if (err) throw err;
         if (rows){
-            for (i=0; i<5; i++) {   //check if there is any duplicate index
+            for (i=0; i<rows.length; i++) {   //check if there is any duplicate index
                 random = Math.floor(Math.random() * rows.length)
                 if (randomIndexArray.indexOf(random) === -1) {
                   randomIndexArray.push(random)
