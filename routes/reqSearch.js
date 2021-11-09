@@ -4,8 +4,8 @@ const router = express.Router();
 
 router.post('/reqsearch', function(req,res) {
     
-    const uid = req.body.user_id;
-    const search_dt = req.body.search_data; //query = get data body =  받음
+    var uid = req.body.user_id;
+    var search_dt = req.body.search_data; //query = get data body =  받음
     var sql = "select PostwriteDB.post_id,IFNULL((bookmark_db.bookmark AND bookmark_db.user_id=?),0) bookmark, "
     + "PostwriteDB.user_id,PostwriteDB.subtext,PostwriteDB.tag, "
     + "PostwriteDB.language_type,PostwriteDB.write_time,PostwriteDB.writer_nickname, "
