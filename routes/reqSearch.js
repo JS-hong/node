@@ -5,7 +5,7 @@ const router = express.Router();
 router.post('/reqsearch', function(req,res) {
     
     var uid = req.body.user_id;
-    var search_dt = req.body.search_data; //query = get data body =  받음
+    var search_dt = '%'+req.body.search_data+'%'; //query = get data body =  받음
     var sql = "select PostwriteDB.post_id,IFNULL((bookmark_db.bookmark AND bookmark_db.user_id=?),0) bookmark, "
     + "PostwriteDB.user_id,PostwriteDB.subtext,PostwriteDB.tag, "
     + "PostwriteDB.language_type,PostwriteDB.write_time,PostwriteDB.writer_nickname, "
@@ -14,11 +14,11 @@ router.post('/reqsearch', function(req,res) {
     + "on PostwriteDB.post_id = bookmark_db.post_id "
     + "where subtext Like ? ";
 	
-    var params = [uid,'%'+search_dt+'%'];
+    var params = [uid,search_dt];
     var json = new Object;
     var json = [];
     let randomIndexArray = []
-    
+    console.log(search_dt)
 	connection.query(sql,params,function(err,rows){
 		if (err) throw err;
         if (rows){
