@@ -8,7 +8,14 @@ router.post('/postcomment', function(req,res) {
 
     const post_id = req.body.main;
 
-    var sql = 'select * from comment_db where post_id = ? order by aaa';
+	var sql = "select PostwriteDB.post_id,IFNULL((bookmark_db.bookmark AND bookmark_db.user_id=?),0) bookmark, "
+    + "PostwriteDB.user_id,PostwriteDB.subtext,PostwriteDB.tag, "
+    + "PostwriteDB.language_type,PostwriteDB.write_time,PostwriteDB.writer_nickname, "
+    + "PostwriteDB.writer_thumbnail,PostwriteDB.language_thumbnail,PostwriteDB.line_of_code,PostwriteDB.bookmark_saved "
+    + "from PostwriteDB left join bookmark_db "
+    + "on PostwriteDB.post_id = bookmark_db.post_id "
+    + "order by write_time desc ";
+	
 	var params = [post_id];
 	
 	connection.query(sql,params,function(err, rows){
