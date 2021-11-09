@@ -12,7 +12,7 @@ router.post('/reqsearch', function(req,res) {
     + "PostwriteDB.writer_thumbnail,PostwriteDB.language_thumbnail,PostwriteDB.line_of_code,PostwriteDB.bookmark_saved "
     + "from PostwriteDB left join bookmark_db "
     + "on PostwriteDB.post_id = bookmark_db.post_id "
-    + "where maintext=? or subtext=? ";
+    + "where maintext Like %?% or subtext Like %?% ";
 	var params = [uid,search_dt,search_dt];
     var json = new Object;
     var json = [];
