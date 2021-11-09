@@ -13,7 +13,7 @@ router.post('/reqsearch', function(req,res) {
     + "from PostwriteDB left join bookmark_db "
     + "on PostwriteDB.post_id = bookmark_db.post_id "
     + "where maintext Like ? or subtext Like ? ";
-	var params = [uid,%search_dt%,%search_dt%];
+	var params = [uid,'%'+search_dt+'%','%'+search_dt+'%'];
     var json = new Object;
     var json = [];
     let randomIndexArray = []
