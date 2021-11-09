@@ -1,0 +1,66 @@
+postBookmark Trigger
+
+DELIMITER //
+create or replace Trigger postbookmark_trigger
+after insert
+on bookmark_db for each row
+begin
+update PostwriteDB
+set bookmark_saved = bookmark_saved+1
+where post_id = new.post_id
+end//
+DELIMITER ;
+
+deleteBookmark Trigger
+
+DELIMITER $$
+create Trigger deletebookmark_trigger
+after delete
+on bookmark_db for each row
+begin
+update PostwriteDB
+set bookmark_saved = bookmark_saved-1
+where post_id = old.post_id
+end
+DELIMITER ;
+
+
+comment_like Trigger
+
+DELIMITER $$
+create or replace Trigger comment_like_trigger
+after insert
+on comment_like_db for each row
+begin
+update comment_db
+set comment_like = comment_like +1
+where post_id = new.post_id
+end
+DELIMITER ;
+
+comment_dislike Trigger
+
+DELIMITER $$
+create Trigger comment_dislike_trigger
+after delete
+on comment_like_db for each row
+begin
+update comment_db 
+set comment_like = comment_like -1
+where post_id = old.post_id
+end
+DELIMITER ;
+
+
+create table comment_like_db
+나머지는 bookmark_db 랑 동일함
+commnet_id 제회하고는
+
+
+Post /reqComment
+
+for(for i=0 < rows.length;i++)
+
+if(rows.length == 0){
+json.
+}
