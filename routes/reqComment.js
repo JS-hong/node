@@ -6,9 +6,10 @@ router.post('/reqcomment', function(req,res) {
 
     var user_id = req.body.user_id;
 	var post_id = req.body.post_id;
+
+	var params = [user_id,post_id];
     var json = new Object;
     var json = [];
-	var params = [user_id,post_id];
 
 	var sql = "select comment_db.comment,comment_db.comment_date, "
 	+ "IFNULL((comment_like_db.comment_liked AND comment_like_db.user_id=?),0) comment_liked, "
