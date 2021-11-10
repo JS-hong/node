@@ -32,12 +32,12 @@ router.post('/reqcomment', function(req,res) {
 					comment_uid : rows[i].comment_uid,
 					})
 			}
-			res.send({"comment": json});
 		} 
         else {
             res.send({data : 'fail'});
 		}
 	})
+	res.send({"comment": json});
 })
 
 module.exports = router;
