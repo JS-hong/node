@@ -34,7 +34,7 @@ router.post('/reqcomment', function(req,res) {
 					comment_uid : rows[i].comment_uid,
 					})
 			}
-			res.send({"feeds": json})
+			res.send({comment: json})
 		} 
         else {
             res.send({data : 'fail'});
