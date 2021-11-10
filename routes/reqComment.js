@@ -25,7 +25,7 @@ router.post('/reqcomment', function(req,res) {
 		}
 		if (rows){
 			for(i=0;rows.length;i++){
-				json.push({
+				json1.push({
 					comment : rows[i].comment,
 					comment_date : rows[i].comment_date,
 					post_id : rows[i].post_id,
