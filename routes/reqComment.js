@@ -24,14 +24,13 @@ router.post('/reqcomment', function(req,res) {
 		if (rows){
 			for(i=0;rows.length;i++){
 				json.push({
-					comment_data : rows[i].comment,
+					comment : rows[i].comment,
 					comment_date : rows[i].comment_date,
 					uid : rows[i].user_id,
 					post_id : rows[i].language_type,
 					comment_like : rows[i].comment_like,
 					comment_liked : rows[i].comment_liked,
 					comment_uid : rows[i].comment_uid,
-					comment_date : rows[i].comment_date,
 					})
 			}
 			res.send({"comment": json})
