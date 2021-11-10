@@ -12,7 +12,7 @@ router.post('/reqcomment', function(req,res) {
 
 	var sql = "select comment_db.comment,comment_db.comment_date, "
 	+ "IFNULL((comment_like_db.comment_liked AND comment_like_db.user_id=?),0) comment_liked, "
-	+ "comment_db.post_id,comment_db.comment_like,comment_db.comment_uid, "
+	+ "comment_db.post_id,comment_db.comment_like,comment_db.comment_uid "
 	+ "from comment_db left join comment_like_db "
 	+ "on comment_db.comment_uid = comment_like_db.comment_uid "
 	+ "wher comment_db.post_id = ? "
