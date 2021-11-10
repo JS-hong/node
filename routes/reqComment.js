@@ -20,7 +20,9 @@ router.post('/reqcomment', function(req,res) {
     var json = [];
 
 	connection.query(sql,params,function(err, rows){
-		if (err) throw err;
+		if (err){
+			throw err;
+		} 
 		if (rows){
 			for(i=0;rows.length;i++){
 				json.push({
