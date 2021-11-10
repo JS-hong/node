@@ -4,21 +4,21 @@ const connection = require('./mysqlconnect');
 
 router.post('/reqcomment', function(req,res) {
 
-    const user_id = req.body.user_id;
+    const uid = req.body.user_id;
 	const post_id = req.body.post_id;
-
-	var params = [user_id,post_id];
-    var json = new Object;
-    var json = [];
 
 	var sql = "select comment_db.comment,comment_db.comment_date, "
 	+ "IFNULL((comment_like_db.comment_liked AND comment_like_db.user_id=?),0) comment_liked, "
 	+ "comment_db.post_id,comment_db.comment_like,comment_db.comment_uid "
 	+ "from comment_db left join comment_like_db "
 	+ "on comment_db.comment_uid = comment_like_db.comment_uid "
-	+ "where comment_db.post_id = ? "
+	+ "where comment_db.post_id =? "
 	+ "order by comment_db.comment_date desc ";
 	
+	var params = [uid,post_id];
+    var json = new Object;
+    var json = [];
+
 	connection.query(sql,params,function(err, rows){
 		if (err) throw err;
 		if (rows){
