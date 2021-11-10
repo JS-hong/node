@@ -4,8 +4,8 @@ const connection = require('./mysqlconnect');
 
 router.post('/reqcomment', function(req,res) {
 
-    var user_id = req.body.user_id;
-	var post_id = req.body.post_id;
+    const user_id = req.body.user_id;
+	const post_id = req.body.post_id;
 
 	var params = [user_id,post_id];
     var json = new Object;
