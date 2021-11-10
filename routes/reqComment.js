@@ -36,7 +36,7 @@ router.post('/reqcomment', function(req,res) {
 			res.send({"comment": json})
 		} 
         else {
-            res.send({data : fail});
+            res.send({data : "fail"});
 		}
 	})
 })
