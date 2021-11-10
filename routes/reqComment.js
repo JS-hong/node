@@ -24,7 +24,7 @@ router.post('/reqcomment', function(req,res) {
 		if (rows){
 			for(i=0;rows.length;i++){
 				json.push({
-					comment : rows[i].comment,
+					comment_data : rows[i].comment,
 					comment_date : rows[i].comment_date,
 					uid : rows[i].user_id,
 					post_id : rows[i].language_type,
@@ -34,7 +34,7 @@ router.post('/reqcomment', function(req,res) {
 					comment_date : rows[i].comment_date,
 					})
 			}
-			res.send({"comment_data": json})
+			res.send({"comment": json})
 		} 
         else {
             res.send({data : 'fail'});
