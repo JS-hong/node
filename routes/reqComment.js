@@ -22,19 +22,20 @@ router.post('/reqcomment', function(req,res) {
 	connection.query(sql,params,function(err, rows){
 		if (err){
 			throw err;
-		} 
+		}
 		if (rows){
 			for(i=0;rows.length;i++){
 				json.push({
 					comment : rows[i].comment,
 					comment_date : rows[i].comment_date,
+					post_id : rows[i].post_id,
 					uid : rows[i].user_id,
 					comment_like : rows[i].comment_like,
 					comment_liked : rows[i].comment_liked,
 					comment_uid : rows[i].comment_uid,
 					})
 			}
-			res.send({comment: json})
+			res.send({"comment": json});
 		} 
         else {
             res.send({data : 'fail'});
