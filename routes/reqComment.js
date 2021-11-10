@@ -34,7 +34,7 @@ router.post('/reqcomment', function(req,res) {
 					comment_date : rows[i].comment_date,
 					})
 			}
-			res.send({"comment": json})
+			res.send({"comment_data": json})
 		} 
         else {
             res.send({data : 'fail'});
