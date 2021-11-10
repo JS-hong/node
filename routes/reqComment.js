@@ -21,7 +21,7 @@ router.post('/reqcomment', function(req,res) {
 	connection.query(sql,params,function(err, rows){
 		if (err) throw err;
 		if (rows){
-			for(i=0;rows.length;i++){
+			for(i=0;i<rows.length;i++){
 				json.push({
 					comment : rows[i].comment,
 					comment_date : rows[i].comment_date,
@@ -32,12 +32,12 @@ router.post('/reqcomment', function(req,res) {
 					comment_uid : rows[i].comment_uid,
 					})
 			}
+			res.send({"comment": json});
 		} 
         else {
             res.send({data : 'fail'});
 		}
 	})
-	res.send({"comment": json});
 })
 
 module.exports = router;
