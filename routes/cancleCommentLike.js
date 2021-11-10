@@ -2,13 +2,13 @@ var express = require('express');
 var connection = require('./mysqlconnect');
 const router = express.Router();
 
-router.post('/postcommentlike', function(req,res) {
+router.post('/canclekcommentlike', function(req,res) {
     
     const uid = req.body.user_id;
     const comment_id = req.body.comment_uid;
 
-    var sql = 'INSERT INTO comment_like_db(user_id,comment_uid,bookmark) VALUES(?,?,?)';
-	var params = [uid,comment_id,'1'];
+    var sql = 'delete from comment_like_db where comment_uid=? AND user_id=? ';
+	var params = [comment_id,uid];
 
 
     connection.query(sql,params,function(err, rows){

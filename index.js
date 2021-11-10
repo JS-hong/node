@@ -17,6 +17,9 @@ var postBookmark = require('./routes/postBookMark');
 var cancleBookmark = require('./routes/cancleBookmark');
 var postComment = require('./routes/PostComment');
 var reqcomment = require('./routes/reqComment');
+var cancleLike = require('./routes/cancleCommentLike');
+var postLike = require('./routes/postCommentLike');
+
 var app = express();
 
 app.set('views', __dirname + '/public')
@@ -45,6 +48,8 @@ app.use(reqDetail)
 app.use(reqSearch)
 app.use(postComment)
 app.use(reqcomment)
+app.use(postLike)
+app.use(cancleLike)
 
 app.get('/pushdata', (req, res) => {
   var data = req.query.data;

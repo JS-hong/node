@@ -27,9 +27,9 @@ router.post('/reqcomment', function(req,res) {
 					comment_date : rows[i].comment_date,
 					post_id : rows[i].post_id,
 					uid : rows[i].user_id,
-					comment_like : rows[i].comment_like,
-					comment_liked : rows[i].comment_liked,
-					comment_uid : rows[i].comment_uid,
+					comment_like : rows[i].comment_like, // 좋아요 숫자
+					comment_liked : rows[i].comment_liked,// 1/0 구별하는거
+					comment_uid : rows[i].comment_uid, //댓글 uid
 					})
 			}
 			res.send({"comment": json});
