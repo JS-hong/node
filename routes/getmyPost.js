@@ -6,7 +6,7 @@ router.post('/getmypost', function(req,res) {
 
     const uid = req.body.user_id; //get data 받음
 
-    var sql = 'select  from PostwriteDB where user_id=? ';
+    var sql = 'select * from PostwriteDB where user_id=? ';
 	var params = [uid];
 	
 	connection.query(sql,params,function(err,rows){

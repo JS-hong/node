@@ -2,7 +2,7 @@ var express = require('express');
 var connection = require('./mysqlconnect');
 const router = express.Router();
 
-router.post('/canclekcommentlike', function(req,res) {
+router.post('/canclecommentlike', function(req,res) {
     
     const uid = req.body.user_id;
     const comment_id = req.body.comment_uid;

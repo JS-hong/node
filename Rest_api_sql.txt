@@ -1,13 +1,22 @@
 postBookmark Trigger
 
+
+create Trigger postbookmark_trigger
+after insert
+on bookmark_db 
+for each row
+update PostwriteDB set bookmark_saved = bookmark_saved+1
+where post_id = new.post_id;
+
+
 DELIMITER //
-create or replace Trigger postbookmark_trigger
+create Trigger postbookmark_trigger
 after insert
 on bookmark_db for each row
 begin
 update PostwriteDB
 set bookmark_saved = bookmark_saved+1
-where post_id = new.post_id
+where post_id = new.post_id;
 end//
 DELIMITER ;
 
