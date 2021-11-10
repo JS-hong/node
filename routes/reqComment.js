@@ -16,8 +16,8 @@ router.post('/reqcomment', function(req,res) {
 	+ "order by comment_db.comment_date desc ";
 	
 	var params = [uid,post_id];
-    var json = new Object;
-    var json = [];
+    var json1 = new Object;
+    var json1 = [];
 
 	connection.query(sql,params,function(err, rows){
 		if (err){
@@ -35,7 +35,7 @@ router.post('/reqcomment', function(req,res) {
 					comment_uid : rows[i].comment_uid,
 					})
 			}
-			res.send({"comment": json});
+			res.send({"comment": json1});
 		} 
         else {
             res.send({data : 'fail'});
