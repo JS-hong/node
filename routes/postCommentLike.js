@@ -7,7 +7,7 @@ router.post('/postcommentlike', function(req,res) {
     const uid = req.body.user_id;
     const comment_id = req.body.comment_uid;
 
-    var sql = 'INSERT INTO comment_like_db(user_id,comment_uid,bookmark) VALUES(?,?,?)';
+    var sql = 'INSERT INTO comment_like_db(user_id,comment_uid,comment_liked) VALUES(?,?,?)';
 	var params = [uid,comment_id,'1'];
 
 
